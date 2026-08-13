@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Antonio Vázquez Blanco
+// SPDX-License-Identifier: MIT
+
 /**
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
@@ -9,6 +12,15 @@ const config: Config = {
   preset: "ts-jest/presets/default-esm",
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
+  },
+  transform: {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        useESM: true,
+        tsconfig: "tsconfig.test.json",
+      },
+    ],
   },
   verbose: true,
   collectCoverage: true,
